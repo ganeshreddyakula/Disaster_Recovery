@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Disaster Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .button {
+      display: inline-block;
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      margin: 10px;
+    }
+    .button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Disaster Management System</h1>
+  </header>
+  <div class="container">
+    <h2>Emergency Services</h2>
+    <button class="button" id="callEmergency">Call Emergency Services</button>
+
+    <h2>Emergency Alerts</h2>
+    <div id="emergencyAlerts"></div>
+
+    <h2>Disaster Resources</h2>
+    <ul>
+      <li><a href="#">Emergency Kit Checklist</a></li>
+      <li><a href="#">Evacuation Plan</a></li>
+      <li><a href="#">Shelter Locations</a></li>
+    </ul>
+  </div>
+
+  <script>
+    // Sample emergency alerts data
+    const emergencyAlertsData = [
+      { message: "Tornado Warning: Seek shelter immediately!" },
+      { message: "Flood Advisory: Stay away from flooded areas." },
+      { message: "Earthquake Alert: Drop, Cover, and Hold On!" },
+    ];
+
+    // Function to display emergency alerts
+    function displayEmergencyAlerts() {
+      const emergencyAlerts = document.getElementById("emergencyAlerts");
+      emergencyAlerts.innerHTML = "";
+      emergencyAlertsData.forEach((alert, index) => {
+        const alertDiv = document.createElement("div");
+        alertDiv.textContent = `${index + 1}. ${alert.message}`;
+        emergencyAlerts.appendChild(alertDiv);
+      });
+    }
+
+    // Add event listener to the "Call Emergency Services" button
+    const callEmergencyButton = document.getElementById("callEmergency");
+    callEmergencyButton.addEventListener("click", displayEmergencyAlerts);
+
+    // Initialize emergency alerts on page load
+    displayEmergencyAlerts();
+  </script>
+</body>
+</html>
